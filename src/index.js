@@ -90,11 +90,11 @@ confirmButton.addEventListener("click", confirm);
 
 // 👉 TASK 8- [STRETCH] Create helper functions to make the code
 // more readable in tasks 3, 4, 5, 6
-// function openModal() {}
+function openModal() {}
 
-// function closeModal() {}
+function closeModal() {}
 
-// function killReports() {}
+function killReports() {}
 
 // 👉 TASK 9- [STRETCH] Using the mouseover event on 'document',
 // log to the console the X and Y coordinates
