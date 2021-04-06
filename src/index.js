@@ -53,7 +53,7 @@ Array.from(document.links).forEach(function (link) {
 // 👉 TASK 3- Create a function that launches!
 // It should open the confirmation modal.
 // Add it as an event listener for click events on the launch button.
-launchButton.addEventListener("cl1ck", function (event) {
+launchButton.addEventListener("click", function (event) {
   // we have absolute power over the DOM here
   debugger;
   modal.classList.remove("off");
