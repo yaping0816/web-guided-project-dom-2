@@ -32,6 +32,10 @@ launchButton.addEventListener("click", function (event) {
   console.log("using the event listener AGAIN");
 });
 
+document.addEventListener("click", function (event) {
+  console.log("clicking the document");
+});
+
 // 👉 TASK 3- Create a function that launches!
 // It should open the confirmation modal.
 // Add it as an event listener for click events on the launch button.
