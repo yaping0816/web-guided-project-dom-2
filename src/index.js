@@ -1,4 +1,4 @@
-console.log("project is up");
+// console.log("project is up");
 
 // 👉 TASK 1- Select the following elements from the DOM:
 
@@ -19,33 +19,33 @@ const modal = document.querySelector("div.modal"); // could be just .modal - eit
 //  B- The DOM's element.onclick attribute
 
 launchButton.onclick = function (event) {
-  console.log("about to smash the old school");
+  //   console.log("about to smash the old school");
 };
 
 //  C- element.addEventListener('click', callback)
 
 launchButton.addEventListener("click", function (event) {
-  console.log("using the event listener");
+  //   console.log("using the event listener");
 });
 
 launchButton.addEventListener("click", function (event) {
-  console.log("using the event listener AGAIN");
+  //   console.log("using the event listener AGAIN");
 });
 
 document.addEventListener("click", function (event) {
   //   console.log("clicking the document");
   if (event.target === launchButton) {
-    console.log("you clicked the launch button");
+    // console.log("you clicked the launch button");
   } else {
-    console.log("you clicked something else");
+    // console.log("you clicked something else");
   }
 });
 
 Array.from(document.links).forEach(function (link) {
   link.addEventListener("click", function (event) {
-    console.log(
-      `disrupting the default behavior of "${event.target.textContent}"`
-    );
+    // console.log(
+    //   `disrupting the default behavior of "${event.target.textContent}"`
+    // );
     event.preventDefault();
   });
 });
