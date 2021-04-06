@@ -78,6 +78,11 @@ confirmButton.addEventListener("click", confirm);
 // It should close the modal and display a failure report.
 // Add it as a listener for clicks on the cancellation button.
 
+cancelButton.addEventListener("click", function (event) {
+  modal.classList.add("off");
+  failureMessage.classList.remove("off");
+});
+
 // 👉 TASK 6- Create a function that closes the modal if
 // the user hits the Escape key on their keyboard.
 // Add it as an event listener for 'keydown' events on document.
