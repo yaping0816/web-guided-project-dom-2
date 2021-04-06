@@ -59,8 +59,7 @@ launchButton.addEventListener("click", function (event) {
 
 function launch(event) {
   openModal();
-  successMessage.classList.add("off");
-  failureMessage.classList.add("off");
+  killReports();
 }
 
 launchButton.addEventListener("click", launch);
@@ -98,7 +97,10 @@ function closeModal() {
   modal.classList.add("off");
 }
 
-function killReports() {}
+function killReports() {
+  successMessage.classList.add("off");
+  failureMessage.classList.add("off");
+}
 
 // 👉 TASK 9- [STRETCH] Using the mouseover event on 'document',
 // log to the console the X and Y coordinates
