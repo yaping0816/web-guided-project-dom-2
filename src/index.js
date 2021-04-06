@@ -33,7 +33,7 @@ launchButton.addEventListener("click", function (event) {
 });
 
 document.addEventListener("click", function (event) {
-  console.log("clicking the document");
+  //   console.log("clicking the document");
   if (event.target === launchButton) {
     console.log("you clicked the launch button");
   } else {
