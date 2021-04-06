@@ -25,7 +25,7 @@ launchButton.onclick = function (event) {
 //  C- element.addEventListener('click', callback)
 
 launchButton.addEventListener("click", function (event) {
-  console.log("the better way to add future functionality");
+  console.log("using the event listener");
 });
 
 // 👉 TASK 3- Create a function that launches!
