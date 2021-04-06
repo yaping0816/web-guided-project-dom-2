@@ -100,9 +100,11 @@ document.addEventListener("keydown", function (event) {
 // Play with stopPropagation and stopImmediatePropagation.
 
 Array.from(document.all).forEach((elem) => {
-  console.log("🎯 target:", event.target);
-  console.log("🧭 current target", event.currentTarget);
-  console.log("\n");
+  elem.addEventListener("click", (event) => {
+    console.log("🎯 target:", event.target);
+    console.log("🧭 current target", event.currentTarget);
+    console.log("\n");
+  });
 });
 
 // 👉 TASK 8- [STRETCH] Create helper functions to make the code
