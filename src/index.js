@@ -3,13 +3,13 @@ console.log('project is up')
 // 👉 TASK 1- Select the following elements from the DOM:
 
 // A- BUTTONS
-const launchButton = null
-const confirmButton = null
-const cancelButton = null
+const launchButton = document.querySelector('#launchButton')
+const confirmButton = document.querySelector('#confirmButton')
+const cancelButton = document.querySelector('#cancelButton')
 
 // B- MESSAGES
-const successMessage = null
-const failureMessage = null
+const successMessage = document.querySelector(“.success”);
+const failureMessage = document.querySelector(“.failure”)
 
 // C- MODAL
 const modal = null
