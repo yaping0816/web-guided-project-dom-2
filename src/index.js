@@ -55,7 +55,6 @@ Array.from(document.links).forEach(function (link) {
 // Add it as an event listener for click events on the launch button.
 launchButton.addEventListener("click", function (event) {
   // we have absolute power over the DOM here
-  debugger;
   modal.classList.remove("off");
 });
 
