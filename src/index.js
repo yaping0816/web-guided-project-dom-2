@@ -70,7 +70,7 @@ launchButton.addEventListener("click", launch);
 // Add it as a listener for clicks on the confirmation button.
 
 function confirm(event) {
-  modal.classList.add("off");
+  closeModal();
   successMessage.classList.remove("off");
 }
 confirmButton.addEventListener("click", confirm);
@@ -94,7 +94,9 @@ function openModal() {
   modal.classList.remove("off");
 }
 
-function closeModal() {}
+function closeModal() {
+  modal.classList.add("off");
+}
 
 function killReports() {}
 
