@@ -104,7 +104,7 @@ Array.from(document.all).forEach((elem) => {
     console.log("🎯 target:", event.target);
     console.log("🧭 current target", event.currentTarget);
     console.log("\n");
-    event.stopPropagation();
+    // event.stopPropagation();
   });
 });
 
