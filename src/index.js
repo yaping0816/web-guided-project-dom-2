@@ -56,6 +56,8 @@ Array.from(document.links).forEach(function (link) {
 launchButton.addEventListener("click", function (event) {
   // we have absolute power over the DOM here
   modal.classList.remove("off");
+  successMessage.classList.add("off");
+  failureMessage.classList.add("off");
 });
 
 // 👉 TASK 4- Create a function to confirm the launch.
