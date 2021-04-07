@@ -38,26 +38,50 @@ const modal = document.querySelector('.modal');
 
 
 // 👉 TASK 2- Demo handling click events on button#launchButton, using:
-//  A- HTML inside index.html (old way)
+// 👎 A- HTML inside index.html (old way)
 // adding 🦴onclick="console.log('do not do this')"🦴 inside of button tag before id
 
-//  B- The DOM's element.onclick attribute (also old way)
+// 👎 B- The DOM's element.onclick attribute (also old way)
+launchButton.onclick = function (){
+    console.log('old way');
+}
+launchButton.onclick = function (){
+    console.log('old way');
+}
 launchButton.onclick = function (){
     console.log('old way');
 }
 // B overwirte the A, onlt console.log 'old way'
+// no matter how many times we attach this function to the element, it only console.log once
 
-//  C- element.addEventListener('click', callback) --- (new better way)
+// 👍 C- element.addEventListener('click', callback) --- (new better way)
+// we are scheduling the callback to be executed on the event of the click that fires on the element lauchButton here
+
 launchButton.addEventListener('click', function(event){
     // handle the click event
-    console.log('much better');
+    // console.log('much better');
+    console.log(`
+    event type:  ${event.type}
+    event target:  ${event.target.nodeName}
+    timestamp:  ${Math.floor(event.timeStamp / 1000)}
+    `)
 } )
+// launchButton.addEventListener('click', function(event){
+//     console.log('much better');
+// } )
 // C is a much better way than B, b/c it doesn't overwrite the others, with B if we have more than one scripts on the page that trying to do the same thing, to overwrite each other, they would mess up
+// it console.log mutiple times
+
+
 
 // 👉 TASK 3- Create a function that launches!
 // It should open the confirmation modal.
 // Add it as an event listener for click events on the launch button.
-
+function launchModal (event){
+    // debugger
+    modal.classList.toggle('off');
+}
+launchButton.addEventListener('click', launchModal);
 
 // 👉 TASK 4- Create a function to confirm the launch.
 // It should close the modal and display a success report.

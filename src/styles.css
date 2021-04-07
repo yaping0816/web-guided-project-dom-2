@@ -47,6 +47,7 @@ button {
 .off {
   display: none;
 }
+/* .off can style the class = 'modal off */
 
 nav {
   margin-bottom: 20px;
