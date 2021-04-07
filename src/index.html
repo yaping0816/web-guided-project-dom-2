@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <script src="index.js" defer></script>
+  <!-- defer attribute does: tells chrome that downloads the script while it keeps parsing the HTML,when the downloads is done, it doesn't execute it immediately, it waits until the last of the HTML is parsed, but why wait? why wait for the DOM to be fully constructed? ( When we delete the defer keywod, the line 13 in index.js returned null, beacuse the script runs before the button is created ) Without the defer attribute the script downloads and execute befoe the parsing of the document continues. By fixing this, you can use defer keyword OR moving the scrip tag all the way to the end of the body right before the closing of the body tag OR using omload function ,see line 5 in index.js-->
   <title>DOM II</title>
 </head>
 
@@ -16,8 +17,10 @@
       <a href="https://developer.mozilla.org/en-US/docs/Web/Events">Event reference</a>
     </nav>
     <span>Hello, World! Ready to launch?</span>
-    <button id="launchButton">Launch!</button>
-    <div class="modal off">
+    <button onclick="console.log('do not do this')"
+     id="launchButton">Launch!</button>
+    <div class="modal off">  
+      <!-- if remove 'off', then there will be a pop up in the webpage -->
       <div class="modal-opacity"></div>
       <div class="modal-dialog">
         <h4>Are you sure?</h4>
