@@ -180,3 +180,7 @@ function killReports() {
 // 👉 TASK 10- [STRETCH] Using the mouseover event on 'document',
 // log to the console the X and Y coordinates
 // of the mouse pointer, as it moves over the screen.
+function listener(e){
+    console.log(`Mouse x: ${e.clientX}, Mouse y: ${e.clientY}`);
+}
+document.addEventListener('mouseover', listener);
