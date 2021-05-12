@@ -76,3 +76,22 @@ mind you the object file might be a LOT larger, then you wouldn't have to copy a
 ---
 As an example, the contract I'm currently working (well, in 20 minutes) I must use DOM manipulation using "vanilla js". 90% of the dom manipulation is performed by an archaic "PHP" language. Even though PHP does DOM manipulation, I need to use vanilla JS DOM manipulation to add events to items as that cannot be done in PHP.
 It's also a 20 year old system, which was written well before React existed. If we were to rewrite this system from scratch, or do a new version of it, it would be written in React
+
+<!-- Difference between stopPropogation and stopImmediatePropogation -->
+- stopPropogation allows other event handlers on the same element to be executed, while stopImmediatePropogation prevent this
+- they both prevent event handlers in the capturing and bubbling phases from being executed (eg. prevent the event from bubbling up)
+
+<!-- difference between innerHTML and textContent -->
+- innerHTML: returns HTML, parses content as HTML, so it takes longer. It outputs text/html(tell the broswer to parse it before displaying it).
+- textContent: uses staight text, does not parse HTML, and is faster. It outputs text/plain.
+- innerHTML: returns the content in the elements and the HTML markup contained, including any spacing,line breaks,etc
+- textContent: return the content of all elements in the node(elemtn),including script and style
+  
+<!-- differences between mouseover and mouseenter -->
+- mouseover:
+- bubble
+- triggers when the mouse enters the div element and its child element
+- mouseenter:L
+- not bubble
+- triggers when the mouse pointer eneters the div element
+- In short, a mouseover occurs on an element when you are over it-coming from either its child OR parent element; but a mouseenter event only occurs when the mouse moves from outside this element to this element

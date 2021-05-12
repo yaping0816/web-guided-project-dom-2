@@ -8,15 +8,18 @@ console.log('project is up')
 
 // 👉 TASK 1- Select the following elements from the DOM:
 
-// aspect of event driven programming, insted of write our program at the top of our script, we schedule a function to execute on some event. Here when the window load event fires (when the window loads), run this function. This fix our problem because any code here(line 8 and 9) runs only after the dom has fully constructed.
+// aspect of event driven programming, insted of write our program at the top of our script, we schedule a function to execute on some event. Here when the window load event fires (when the window loads), run this function. This fix our problem because any code here(line 19) runs only after the dom has fully constructed.
 
-window.onload = function (){
-// probably not a good idea
+// if you can't use the defer attribute
+window.onload = function (){  // BUT probably not a good idea
+    // all of your program here
+    // const launchButton = document.querySelector('#launchButton');
+    // console.log(launchButton);   
 }
 
-window.addEventListener('load', function (event){
+window.addEventListener('load', function (event){  //same as line 14, but better way than line 14
     // better way
-     // ALL OF YOUR PROGRAM HERE
+    // ALL OF YOUR PROGRAM HERE
     // if you can't use defer atrribute for example
     // or if you want to make absolutely sure that a piece of code runs after the load event fires on the tab (whihc would mean the DOM is contructed)
     // const launchButton = document.querySelector('#launchButton');
@@ -40,19 +43,19 @@ const modal = document.querySelector('.modal');
 
 // 👉 TASK 2- Demo handling click events on button#launchButton, using:
 // 👎 A- HTML inside index.html (old way)
-// adding 🦴onclick="console.log('do not do this')"🦴 inside of button tag before id
+// adding 🦴onclick="console.log('do not do this')"🦴 inside of button tag before id, see line 20 in HTML
 
 // 👎 B- The DOM's element.onclick attribute (also old way)
-launchButton.onclick = function (){
-    console.log('old way');
-}
-launchButton.onclick = function (){
-    console.log('old way');
-}
-launchButton.onclick = function (){
-    console.log('old way');
-}
-// B overwirte the A, onlt console.log 'old way'
+// launchButton.onclick = function (){
+//     console.log('old way');
+// }
+// launchButton.onclick = function (){
+//     console.log('old way');
+// }
+// launchButton.onclick = function (){
+//     console.log('old way');
+// }
+// B overwirte the A, only console.log 'old way'
 // no matter how many times we attach this function to the element, it only console.log once
 
 // 👍 C- element.addEventListener('click', callback) --- (new better way)
@@ -60,7 +63,7 @@ launchButton.onclick = function (){
 
 launchButton.addEventListener('click', function(event){
     // handle the click event
-    // console.log('much better');
+    console.log('much better');
     console.log(`
     event type:  ${event.type}
     event target:  ${event.target.nodeName}
@@ -68,25 +71,25 @@ launchButton.addEventListener('click', function(event){
     `)
 } )
 // launchButton.addEventListener('click', function(event){
-//     console.log('much better');
+//     console.log('much much better');
 // } )
 // C is a much better way than B, b/c it doesn't overwrite the others, with B if we have more than one scripts on the page that trying to do the same thing, to overwrite each other, they would mess up
-// it console.log mutiple times
+// C can console.log mutiple times
 
 
 
 // 👉 TASK 3- Create a function that launches!
 // It should open the confirmation modal.
 // Add it as an event listener for click events on the launch button.
-function launchModal (event){
-    // showing modal
-    modal.classList.remove('off');  // toggle also does the job here, but we want to be clear, so if remove/add works , use them first
-    //getting rid of old success/failure messages
-    successMessage.classList.add('off');
-    failureMessage.classList.add('off');
-        // .add wouldn't add the same className twice, just make sure the element has this 'off' class
-}
-launchButton.addEventListener('click', launchModal);
+// function launchModal (event){
+//     // showing modal
+//     modal.classList.remove('off');  // toggle also does the job here, but we want to be clear, so if remove/add works , use them first
+//     //getting rid of old success/failure messages
+//     successMessage.classList.add('off');
+//     failureMessage.classList.add('off');
+//         // .add wouldn't add the same className twice, just make sure the element has this 'off' class
+// }
+// launchButton.addEventListener('click', launchModal);
 
 // 👉 TASK 4- Create a function to confirm the launch.
 // It should close the modal and display a success report.
@@ -106,12 +109,13 @@ cancelButton.addEventListener('click', (event)=>{
     failureMessage.classList.remove('off');
 });
 
+
 // 👉 TASK 6- Create a function that closes the modal if
 // the user hits the Escape key on their keyboard.
 // Add it as an event listener for 'keydown' events on document.
 document.addEventListener('keydown', (event)=>{
     // inside the event object is the key that fired the event
-    debugger
+    // debugger
     // we need to know if the key pressed was the ESCAPE or not by using debugger, then you press any key like 'Escape', check scope-local-event, to find out which key value is 'Escape, the key is code or key
     // if it was, dismiss the modal
     if(event.key==='Escape'){
@@ -125,9 +129,10 @@ document.addEventListener('keydown', (event)=>{
 // It should also console.log the CURRENT target 🧭 of the event.
 // Play with stopPropagation and stopImmediatePropagation.
 
-Array.from(document.all).forEach(element =>{
+Array.from(document.querySelectorAll('*')).forEach(element =>{
     element.addEventListener('click', function(event){
-        // event.stopPropagation() //disrupts bubbling
+        event.stopPropagation(); //prevent further propagation of the current event in the capturing and bubbling phases
+        // event.stopImmediatePropagation();  //prevent other event handlers on the same element from being called and stops the event from bubbling up. so line 147 won't work
         console.log(`
         event type:  ${event.type}
         event target:  ${event.target.nodeName}
@@ -144,22 +149,27 @@ document.querySelector('a').addEventListener('click', event=>{
     // doesn't disrupts bubbling
 })
 
-// To prevent defalu behavior for all of the links
-document.querySelectorAll('a').forEach(link=>{
-    link.addEventListener('click', event=>{
-        event.preventDefault()
-    })
-})
+// To prevent default behavior for all of the links
+// document.querySelectorAll('a').forEach(link=>{
+//     link.addEventListener('click', event=>{
+//         event.preventDefault()
+//     })
+// })
 
 
 // 👉 TASK 9- [STRETCH] Create helper functions to make the code
 // more readable in tasks 3, 4, 5, 6
 function openModal() {
-
+    launchButton.addEventListener('click', event=>{
+        modal.classList.remove('off');
+        successMessage.classList.add('off');
+        failureMessage.classList.add('off');
+    })
 }
+openModal();
 
 function closeModal() {
-
+    
 }
 
 function killReports() {
